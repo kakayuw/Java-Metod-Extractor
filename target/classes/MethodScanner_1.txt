@@ -1,0 +1,3 @@
+MethodTree scan(ExecutableElement methodElement,Trees trees){	    assert methodElement.getKind() == ElementKind.METHOD;	    List<MethodTree> methodTrees = this.scan(trees.getPath(methodElement), trees);	    assert methodTrees.size() == 1;	    return methodTrees.get(0);	}
+List<MethodTree> scan(TreePath treePath,Trees trees){	    super.scan(treePath, trees);	    return this.methodTrees;	}
+List<MethodTree> visitMethod(MethodTree methodTree,Trees trees){	    this.methodTrees.add(methodTree);	    return super.visitMethod(methodTree, trees);	}
